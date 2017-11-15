@@ -39,7 +39,7 @@ public class CanvasPanel extends JPanel {
 		g2d.setColor(Color.WHITE);
 		g2d.setStroke(new BasicStroke(strokeWidth));
 
-		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t))));
+		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t)))); // TODO: Add an option to switch between sin() and cos()
 		if (points.size() > 1) {
 			while (points.size() >= maxPoints) {
 				points.remove(0);
