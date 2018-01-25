@@ -1,7 +1,11 @@
+package com.sapuseven.parametricplot;
+
+import com.sapuseven.parametricplot.formcomponents.CanvasPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
-class SandboxFrame {
+public class SandboxFrame {
 	private JPanel root;
 	private CanvasPanel canvas;
 	private JButton start;
@@ -64,7 +68,7 @@ class SandboxFrame {
 		frame.setVisible(true);
 	}
 
-	void setStartButtonText(String text) {
+	public void setStartButtonText(String text) {
 		start.setText(text);
 	}
 }

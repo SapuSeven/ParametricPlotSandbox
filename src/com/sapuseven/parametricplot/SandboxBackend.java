@@ -1,3 +1,5 @@
+package com.sapuseven.parametricplot;
+
 import javax.swing.*;
 
 class SandboxBackend {
@@ -5,7 +7,7 @@ class SandboxBackend {
 	private SandboxBackend() {
 		int height = 600;
 		int width = 600;
-		SandboxFrame display = new SandboxFrame("ParametricPlotSandbox", width, height); // Initialize the GUI
+		new SandboxFrame("ParametricPlotSandbox", width, height);
 	}
 
 	public static void main(String[] args) {
@@ -15,6 +17,6 @@ class SandboxBackend {
 			e.printStackTrace();
 		}
 
-		SandboxBackend sandbox = new SandboxBackend();
+		new SandboxBackend();
 	}
 }

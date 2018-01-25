@@ -1,3 +1,7 @@
+package com.sapuseven.parametricplot.formcomponents;
+
+import com.sapuseven.parametricplot.SandboxFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -18,7 +22,7 @@ public class CanvasPanel extends JPanel {
 	private float strokeWidth = 3;
 	private boolean rainbow;
 
-	void init(SandboxFrame frame) {
+	public void init(SandboxFrame frame) {
 		this.frame = frame;
 
 		int timerDelay = 1000 / fps;
@@ -39,7 +43,7 @@ public class CanvasPanel extends JPanel {
 		g2d.setColor(Color.WHITE);
 		g2d.setStroke(new BasicStroke(strokeWidth));
 
-		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t))));
+		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t + Math.PI / 2))));
 		if (points.size() > 1) {
 			while (points.size() >= maxPoints) {
 				points.remove(0);
@@ -65,21 +69,21 @@ public class CanvasPanel extends JPanel {
 		repaint();
 	}
 
-	void setN1(double n1) {
+	public void setN1(double n1) {
 		this.n1 = n1;
 		reset();
 	}
 
-	void setN2(double n2) {
+	public void setN2(double n2) {
 		this.n2 = n2;
 		reset();
 	}
 
-	void setMaxPoints(int maxPoints) {
+	public void setMaxPoints(int maxPoints) {
 		this.maxPoints = maxPoints;
 	}
 
-	void reset() {
+	public void reset() {
 		t = 0;
 		points.clear();
 		deletedPoints = 0;
@@ -87,11 +91,11 @@ public class CanvasPanel extends JPanel {
 			repaint();
 	}
 
-	void setStrokeWidth(float strokeWidth) {
+	public void setStrokeWidth(float strokeWidth) {
 		this.strokeWidth = strokeWidth;
 	}
 
-	void startStop() {
+	public void startStop() {
 		if (timer.isRunning()) {
 			timer.stop();
 			frame.setStartButtonText("Start");
@@ -101,17 +105,17 @@ public class CanvasPanel extends JPanel {
 		}
 	}
 
-	void setIncrement(double increment) {
+	public void setIncrement(double increment) {
 		this.increment = increment;
 	}
 
-	void setFps(int fps) {
+	public void setFps(int fps) {
 		this.fps = fps;
 
 		timer.setDelay(1000 / fps);
 	}
 
-	void setRainbow(boolean rainbow) {
+	public void setRainbow(boolean rainbow) {
 		this.rainbow = rainbow;
 	}
 }
