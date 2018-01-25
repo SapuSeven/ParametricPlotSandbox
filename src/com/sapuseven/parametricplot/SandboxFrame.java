@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SandboxFrame {
+	private final String title;
+	private final int width;
+	private final int height;
 	private JPanel root;
 	private CanvasPanel canvas;
 	private JButton start;
@@ -17,10 +20,6 @@ public class SandboxFrame {
 	private JButton reset;
 	private JSpinner increment;
 	private JSpinner fps;
-
-	private final String title;
-	private final int width;
-	private final int height;
 
 	SandboxFrame(String title, int width, int height) {
 		this.title = title;

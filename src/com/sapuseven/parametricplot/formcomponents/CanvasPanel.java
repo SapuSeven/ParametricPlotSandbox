@@ -8,16 +8,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CanvasPanel extends JPanel {
+	private final ArrayList<Point> points = new ArrayList<>();
+	private final int scale = 250;
 	private Timer timer;
 	private double t = 0;
-	private final ArrayList<Point> points = new ArrayList<>();
 	private SandboxFrame frame;
 	private int deletedPoints = 0;
 	private int fps = 60;
 	private double increment = 0.05;
 	private final ActionListener timerAction = e -> redraw();
 	private double n1 = 1, n2 = 1;
-	private final int scale = 250;
 	private int maxPoints = 1000;
 	private float strokeWidth = 3;
 	private boolean rainbow;
@@ -43,7 +43,7 @@ public class CanvasPanel extends JPanel {
 		g2d.setColor(Color.WHITE);
 		g2d.setStroke(new BasicStroke(strokeWidth));
 
-		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t + Math.PI / 2))));
+		points.add(new Point((int) Math.round(scale * Math.sin(n1 * t)), (int) Math.round(scale * Math.sin(n2 * t)))); // TODO: Add an option to switch between sin() and cos()
 		if (points.size() > 1) {
 			while (points.size() >= maxPoints) {
 				points.remove(0);
